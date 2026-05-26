@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Zihan (Hannah) Teng — Full-stack Data Scientist Who Ships</title>
+  <meta name="description" content="Applied data scientist and full-stack builder. I ship AI-powered products end to end — from statistical models on real-world health data to Next.js / React / Supabase apps deployed in days, not months.">
+
+  <!-- Open Graph (link previews when shared with recruiters / on LinkedIn / Slack) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Zihan (Hannah) Teng — Full-stack Data Scientist Who Ships">
+  <meta property="og:description" content="Applied data scientist and full-stack builder. From mixed-model analyses to Next.js / Supabase / FastAPI apps and AI-native tools — shipped end to end.">
+  <!-- Once deployed, set og:url to your live URL, e.g. https://hannahteng.github.io/hannah-portfolio/ -->
+
+  <!-- Favicon: inline SVG with my initials in the teal accent. No image file needed. -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23FBFBF9'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%232F6F6B'%3EHT%3C/text%3E%3C/svg%3E">
+
+  <!-- Google Fonts: Fraunces (display serif) + Inter (UI sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Bootstrap Icons (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Brand overrides -->
+  <link rel="stylesheet" href="custom.css">
+</head>
+
+<!--
+  ScrollSpy on <body>:
+    - data-bs-target="#mainNav"    → highlights matching .nav-link as you scroll
+    - data-bs-root-margin           → mirrors scroll-padding-top (~80px) so a section
+                                      "activates" when its top clears the fixed navbar
+    - data-bs-smooth-scroll="true" → smooth scroll on nav clicks
+-->
+<body
+  data-bs-spy="scroll"
+  data-bs-target="#mainNav"
+  data-bs-root-margin="-80px 0px -40%"
+  data-bs-smooth-scroll="true"
+  tabindex="0">
+
+  <!-- ============================================================
+       NAVBAR (fixed top; transparent until scrolled)
+       ============================================================ -->
+  <nav id="mainNav" class="navbar navbar-expand-lg fixed-top" aria-label="Primary">
+    <div class="container">
+      <a class="navbar-brand" href="#home">Hannah Teng</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavCollapse"
+        aria-controls="mainNavCollapse"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="mainNavCollapse">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#build">Build</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section id="home" class="hero">
+      <div class="container">
+        <span class="avail-badge mb-3 d-inline-block">
+          <i class="bi bi-circle-fill me-1 small-dot" aria-hidden="true"></i>Available full-time from June 2026
+        </span>
+        <h1 class="hero-name mb-3">Zihan (Hannah) Teng</h1>
+        <p class="hero-tagline mb-2">Full-stack data scientist who ships &mdash; from models to deployed products.</p>
+        <p class="hero-identity mb-4">Applied &amp; health data &middot; Full-stack (Next.js / React / Supabase) &middot; AI-native builder</p>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <a href="#contact" class="btn btn-primary px-4">Get in touch</a>
+          <a href="https://github.com/HannahTeng" class="btn btn-outline-primary px-4" target="_blank" rel="noopener" aria-label="Hannah Teng's GitHub profile (opens in new tab)">
+            <i class="bi bi-github me-2" aria-hidden="true"></i>GitHub
+          </a>
+        </div>
+        <p class="text-muted-soft small mb-0">
+          <i class="bi bi-geo-alt-fill me-1" aria-hidden="true"></i>Los Angeles
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT
+         ============================================================ -->
+    <section id="about" class="py-5">
+      <div class="container">
+        <p class="section-label">ABOUT</p>
+        <h2 class="section-heading mb-4">About</h2>
+        <div class="about-prose">
+          <p>I've always liked the moment when data stops being a spreadsheet and starts changing what someone decides to do next. That pull took me from a statistics degree at Nottingham to a Master's in Data Science in Health at UCLA &mdash; and, along the way, from just analyzing data to building the products around it.</p>
+
+          <p>My internships let me do both. At an AI mock-interview startup I designed the A/B tests and funnel analysis that lifted user engagement by 85%, and built a scoring model that made marketing spend 30% more efficient. Elsewhere I've built ETL pipelines across 50+ on-chain protocols and turned 100k+ records into dashboards teams actually used. But the part I kept gravitating toward was shipping the whole thing &mdash; so I started building my own: full-stack web apps with Next.js, React and Supabase, an AI photo-editing tool on FastAPI, and a couple of e-commerce brands I run end to end.</p>
+
+          <p>What changed how I work is AI tooling. With agentic coding &mdash; Claude Code, MCP, the whole new stack &mdash; I can go from a rough idea to a deployed product in days, not months. I think that's where data people are heading: not just modeling or just engineering, but <em>forward-deployed</em> &mdash; sitting close to a real problem and building the model and the tool that solves it.</p>
+
+          <p>Off-screen I cycle, hike, and play badminton &mdash; the same appetite for reps and small improvements I bring to everything else. Always happy to trade ideas with people who care about data, AI tooling, and the "why" behind what we build.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WHAT I BUILD (shipped products)
+         ============================================================ -->
+    <section id="build" class="py-5">
+      <div class="container">
+        <p class="section-label">BUILD</p>
+        <h2 class="section-heading mb-4">What I build</h2>
+
+        <div class="row g-3">
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 p-4 d-flex flex-column">
+              <h3 class="card-title-tight">ITSVA</h3>
+              <p class="card-body-text flex-grow-1">Full-stack food-delivery and meal-subscription app.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="stack-tag">Next.js 14</span>
+                <span class="stack-tag">TypeScript</span>
+                <span class="stack-tag">Tailwind</span>
+              </div>
+              <div>
+                <a href="#" class="btn btn-sm btn-outline-primary" aria-label="View ITSVA project">View &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 p-4 d-flex flex-column">
+              <h3 class="card-title-tight">Lovia</h3>
+              <p class="card-body-text flex-grow-1">Merchant portal with a self-built admin UI.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="stack-tag">React</span>
+                <span class="stack-tag">Supabase</span>
+                <span class="stack-tag">Postgres</span>
+              </div>
+              <div>
+                <a href="#" class="btn btn-sm btn-outline-primary" aria-label="View Lovia project">View &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 p-4 d-flex flex-column">
+              <h3 class="card-title-tight">Personal Pattern</h3>
+              <p class="card-body-text flex-grow-1">AI photo-editing web app.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="stack-tag">FastAPI</span>
+                <span class="stack-tag">MediaPipe</span>
+                <span class="stack-tag">Gradio</span>
+              </div>
+              <div>
+                <a href="#" class="btn btn-sm btn-outline-primary" aria-label="View Personal Pattern project">View &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 p-4 d-flex flex-column">
+              <h3 class="card-title-tight">Cha-rming + beauty e-commerce</h3>
+              <p class="card-body-text flex-grow-1">DTC brands I run end to end.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="stack-tag">Brand</span>
+                <span class="stack-tag">DTC</span>
+                <span class="stack-tag">Amazon</span>
+              </div>
+              <div>
+                <a href="#" class="btn btn-sm btn-outline-primary" aria-label="View Cha-rming and beauty e-commerce brands">View &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 p-4 d-flex flex-column">
+              <h3 class="card-title-tight">Airpop</h3>
+              <p class="card-body-text flex-grow-1">Logistics brand site.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="stack-tag">Next.js</span>
+                <span class="stack-tag">Three.js</span>
+                <span class="stack-tag">GSAP</span>
+                <span class="stack-tag">Lenis</span>
+              </div>
+              <div>
+                <a href="#" class="btn btn-sm btn-outline-primary" aria-label="View Airpop project">View &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SKILLS (4 groups · 2×2 grid on tablet+, stacked on mobile)
+         ============================================================ -->
+    <section id="skills" class="py-5">
+      <div class="container">
+        <p class="section-label">SKILLS</p>
+        <h2 class="section-heading mb-4">Skills</h2>
+        <div class="row g-3">
+
+          <div class="col-md-6">
+            <div class="card h-100 p-4">
+              <h6 class="card-subtitle mb-3">AI-native building</h6>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="pill-badge">Claude Code</span>
+                <span class="pill-badge">MCP</span>
+                <span class="pill-badge">Agentic workflows</span>
+                <span class="pill-badge">Higgsfield</span>
+                <span class="pill-badge">Hugging Face / LLM APIs</span>
+                <span class="pill-badge">Prompt &amp; eval design</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card h-100 p-4">
+              <h6 class="card-subtitle mb-3">Frontend (React ecosystem)</h6>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="pill-badge">React</span>
+                <span class="pill-badge">Next.js 14 (App Router)</span>
+                <span class="pill-badge">TypeScript</span>
+                <span class="pill-badge">Tailwind CSS</span>
+                <span class="pill-badge">shadcn/ui</span>
+                <span class="pill-badge">Three.js</span>
+                <span class="pill-badge">GSAP</span>
+                <span class="pill-badge">Lenis</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card h-100 p-4">
+              <h6 class="card-subtitle mb-3">Backend &amp; data</h6>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="pill-badge">Node</span>
+                <span class="pill-badge">Supabase (Postgres)</span>
+                <span class="pill-badge">FastAPI</span>
+                <span class="pill-badge">SQL</span>
+                <span class="pill-badge">ETL pipelines</span>
+                <span class="pill-badge">REST / Server Actions</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card h-100 p-4">
+              <h6 class="card-subtitle mb-3">Data science</h6>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="pill-badge">Python</span>
+                <span class="pill-badge">R</span>
+                <span class="pill-badge">SAS</span>
+                <span class="pill-badge">Statistical modeling (mixed models, survival analysis)</span>
+                <span class="pill-badge">A/B testing &amp; experimentation</span>
+                <span class="pill-badge">Tableau</span>
+                <span class="pill-badge">Power BI</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         EXPERIENCE (vertical timeline · impact-first bullets)
+         ============================================================ -->
+    <section id="experience" class="py-5">
+      <div class="container">
+        <p class="section-label">EXPERIENCE</p>
+        <h2 class="section-heading mb-4">Experience</h2>
+
+        <ol class="timeline list-unstyled">
+
+          <li class="timeline-item">
+            <span class="timeline-date">Jun &ndash; Aug 2026</span>
+            <h3 class="timeline-role">Data Management Intern</h3>
+            <p class="timeline-meta">ATRI (Alzheimer's Therapeutic Research Institute), USC &middot; San Diego</p>
+            <ul class="timeline-bullets">
+              <li>Clinical trial data management &mdash; validation, QC, and audit-ready longitudinal data across active Alzheimer's studies.</li>
+            </ul>
+          </li>
+
+          <li class="timeline-item">
+            <span class="timeline-date">Sep &ndash; Dec 2025</span>
+            <h3 class="timeline-role">Marketing Data Analyst</h3>
+            <p class="timeline-meta">Wekruit (AI mock-interview platform) &middot; Hybrid</p>
+            <ul class="timeline-bullets">
+              <li><strong>+85% engagement</strong> &mdash; ran A/B tests and cohort / funnel analysis in SQL and Python.</li>
+              <li><strong>+30% marketing spend efficiency</strong> &mdash; built a creator performance scoring model and ran survival analysis (Kaplan&ndash;Meier, Cox) on 1,500+ users.</li>
+            </ul>
+          </li>
+
+          <li class="timeline-item">
+            <span class="timeline-date">Jan &ndash; Jul 2025</span>
+            <h3 class="timeline-role">Data Scientist Intern</h3>
+            <p class="timeline-meta">Tritium Web 3.0 Research &middot; Remote</p>
+            <ul class="timeline-bullets">
+              <li>Shipped production ETL pipelines (SQL, Python) covering on-chain data from 50+ DeFi protocols.</li>
+              <li>Designed and analyzed A/B tests using <code>scipy</code> and <code>statsmodels</code> to validate research hypotheses.</li>
+            </ul>
+          </li>
+
+          <li class="timeline-item">
+            <span class="timeline-date">Jul &ndash; Sep 2024</span>
+            <h3 class="timeline-role">Data Scientist Intern</h3>
+            <p class="timeline-meta">Sinotrans (Fortune 500) &middot; Ningbo</p>
+            <ul class="timeline-bullets">
+              <li>Operational dashboards live across <strong>12 sites</strong> &mdash; structured 100k+ records into centralized data pools as the backbone for L2&ndash;L3 digital transformation.</li>
+            </ul>
+          </li>
+
+          <li class="timeline-item">
+            <span class="timeline-date">Jan &ndash; Jul 2024</span>
+            <h3 class="timeline-role">Business Analyst Intern</h3>
+            <p class="timeline-meta">Ritkeep Co. &middot; Remote</p>
+            <ul class="timeline-bullets">
+              <li><strong>+25% followers, +20% web traffic</strong> via multi-platform analytics across Facebook, Yelp, and Reddit.</li>
+            </ul>
+          </li>
+
+          <li class="timeline-item">
+            <span class="timeline-date">May &ndash; Sep 2023</span>
+            <h3 class="timeline-role">Market Data Analyst</h3>
+            <p class="timeline-meta">Weichai Group (Fortune 500) &middot; Weifang</p>
+            <ul class="timeline-bullets">
+              <li>Informed regional sales strategy across <strong>15+ countries</strong> through EDA on cross-market performance.</li>
+            </ul>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         APPLIED & HEALTH-DATA RESEARCH (supporting depth · one-liners)
+         ============================================================ -->
+    <section id="research" class="py-5">
+      <div class="container">
+        <p class="section-label">RESEARCH</p>
+        <h2 class="section-heading mb-4">Applied &amp; health-data research</h2>
+
+        <div class="row g-3">
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 p-4">
+              <h3 class="card-title-tight">Medicare Drug Cost Variation</h3>
+              <p class="card-meta">UCLA &middot; Fall 2025</p>
+              <p class="card-body-text mb-0">Hierarchical mixed models on 1M Medicare Part D records to disentangle specialty- vs geographic-level drivers of oncology drug cost.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 p-4">
+              <h3 class="card-title-tight">Health Data Visualization (SAS)</h3>
+              <p class="card-meta">UCLA &middot; Fall 2025</p>
+              <p class="card-body-text mb-0">Comparative subgroup visualizations of longitudinal HRS data.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 p-4">
+              <h3 class="card-title-tight">Healthcare Operations</h3>
+              <p class="card-meta">HOME Lab, Ningbo &middot; 2024</p>
+              <p class="card-body-text mb-0">Power-analysis A/B tests on emergency-response data for ambulance reallocation.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 p-4 d-flex flex-column">
+              <h3 class="card-title-tight">MIMIC-IV Sepsis Mortality</h3>
+              <p class="card-meta">Personal &middot; 2025</p>
+              <p class="card-body-text flex-grow-1 mb-3">Calibrated mortality-risk model on MIMIC-IV ICU data, deployed as an interactive R Shiny demo.</p>
+              <div>
+                <a href="https://hannahteng.shinyapps.io/sepsis-mortality-demo/" class="btn btn-sm btn-primary" target="_blank" rel="noopener" aria-label="Open the MIMIC-IV sepsis mortality live demo (opens in new tab)">
+                  <i class="bi bi-box-arrow-up-right me-1" aria-hidden="true"></i>Live demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         EDUCATION
+         ============================================================ -->
+    <section id="education" class="py-5">
+      <div class="container">
+        <p class="section-label">EDUCATION</p>
+        <h2 class="section-heading mb-4">Education</h2>
+
+        <div class="row g-3">
+
+          <div class="col-md-6">
+            <div class="card h-100 p-4">
+              <h3 class="card-title-tight">UCLA</h3>
+              <p class="card-meta">Sep 2025 &ndash; Jun 2027</p>
+              <p class="card-body-text mb-1"><strong>MSc Data Science in Health</strong></p>
+              <p class="card-body-text mb-0 text-muted-soft">GPA 3.78 / 4.0</p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card h-100 p-4">
+              <h3 class="card-title-tight">University of Nottingham</h3>
+              <p class="card-meta">2021 &ndash; 2025</p>
+              <p class="card-body-text mb-1"><strong>BSc (Hons) International Business &amp; Economics / Statistics</strong></p>
+              <p class="card-body-text mb-1 text-muted-soft">GPA 3.67 / 4.0</p>
+              <p class="card-body-text mb-0 text-muted-soft">Data Scholarship (top 1%) &middot; Nottingham Advantage Award (top 5%)</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT
+         ============================================================ -->
+    <section id="contact" class="py-5">
+      <div class="container text-center">
+        <p class="section-label">CONTACT</p>
+        <h2 class="section-heading mb-3">Let's connect</h2>
+        <p class="lead-text mx-auto mb-4 contact-lead">Open to full-time roles starting June 2026 &mdash; forward-deployed data science, applied / health data science, and AI-product engineering.</p>
+
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+          <a href="mailto:hannah.lai.offer@gmail.com" class="btn btn-primary px-4" aria-label="Email Hannah at hannah.lai.offer@gmail.com">
+            <i class="bi bi-envelope-fill me-2" aria-hidden="true"></i>Email
+          </a>
+          <a href="tel:+13239487587" class="btn btn-outline-primary px-4" aria-label="Call Hannah at +1 323-948-7587">
+            <i class="bi bi-telephone-fill me-2" aria-hidden="true"></i>Phone
+          </a>
+          <a href="https://github.com/HannahTeng" class="btn btn-outline-primary px-4" target="_blank" rel="noopener" aria-label="Hannah Teng on GitHub (opens in new tab)">
+            <i class="bi bi-github me-2" aria-hidden="true"></i>GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="py-4 border-top">
+    <div class="container text-center">
+      <p class="small text-muted-soft mb-0">&copy; 2026 Zihan (Hannah) Teng</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5.3 JS bundle (includes Popper + ScrollSpy + Collapse) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- Navbar transparency toggle + auto-close mobile menu on link click -->
+  <script>
+    (function () {
+      const nav = document.getElementById('mainNav');
+
+      // Transparent at top → solid (.is-scrolled) once we pass 40px
+      const onScroll = () => {
+        if (window.scrollY > 40) nav.classList.add('is-scrolled');
+        else nav.classList.remove('is-scrolled');
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // Close the hamburger menu after a link is tapped on mobile
+      document.querySelectorAll('#mainNav .nav-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          const open = document.querySelector('#mainNavCollapse.show');
+          if (open) bootstrap.Collapse.getOrCreateInstance(open).hide();
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

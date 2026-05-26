@@ -1,0 +1,477 @@
+/* ============================================================
+   Hannah Teng — Portfolio · custom.css
+   Brand overrides + small layout tweaks on top of Bootstrap 5.3.
+   Each block is commented so you can see what it's doing.
+   ============================================================ */
+
+
+/* ----- 1. Brand palette as CSS variables --------------------
+   Defined once on :root so anywhere below can reference them
+   with var(--name). To rebrand, only this block changes. The
+   --bs-* variables override Bootstrap's defaults so .btn-primary,
+   .text-primary, links, and .nav-link.active all pick up the
+   teal accent without us writing extra rules.                 */
+:root {
+  --bg: #FBFBF9;                                /* page background (warm off-white) */
+  --ink: #1B2430;                               /* main text */
+  --muted: #5B6472;                             /* secondary text */
+  --accent: #2F6F6B;                            /* deep teal — used sparingly */
+  --accent-hover: #245855;                      /* darker teal for hover */
+  --accent-soft: rgba(47, 111, 107, 0.08);      /* faint teal fill for pills/badges */
+  --accent-border: rgba(47, 111, 107, 0.28);    /* faint teal border for pills */
+  --divider: #E7E7E2;                           /* thin divider/border color */
+
+  /* Tell Bootstrap to recolor anything it bases on --bs-primary */
+  --bs-primary: #2F6F6B;
+  --bs-primary-rgb: 47, 111, 107;
+  --bs-link-color: #2F6F6B;
+  --bs-link-hover-color: #245855;
+  --bs-border-color: #E7E7E2;
+}
+
+
+/* ----- 2. Page fundamentals ---------------------------------
+   - scroll-behavior: smooth makes anchor jumps animate.
+   - scroll-padding-top offsets the fixed navbar (~70px) so when
+     a nav link jumps to #section the section heading is not
+     hidden beneath the navbar. This must match the ScrollSpy
+     data-bs-root-margin on <body> in index.html.             */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.0625rem;        /* 17px — comfortable reading */
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ----- 3. Headings ------------------------------------------
+   All headings switch to Fraunces (serif). Slight negative
+   tracking keeps them feeling editorial rather than blocky. */
+h1, h2, h3, h4, h5, h6,
+.section-heading {
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+
+/* ----- 4. Container max-width -------------------------------
+   Bootstrap caps .container around 1140px at xl. We tighten
+   it to ~1040px for a more editorial single-column feel. */
+.container {
+  max-width: 1040px;
+}
+
+
+/* ----- 5. Section labels & headings -------------------------
+   The little chip like "EXPERIENCE" above each section heading.
+   Small, uppercase, spaced — gives the page rhythm without
+   needing dividers everywhere. */
+.section-label {
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.section-heading {
+  font-size: clamp(1.75rem, 3.2vw, 2.25rem);
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.subsection-heading {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+
+/* ----- 6. Navbar --------------------------------------------
+   Transparent at the top of the page. JS in index.html adds
+   .is-scrolled past 40px scroll — that swaps in a blurred
+   solid background + a 1px divider so the navbar reads against
+   any content beneath it. */
+.navbar {
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  transition: background-color 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease,
+              padding 0.25s ease;
+}
+
+.navbar.is-scrolled {
+  background-color: rgba(251, 251, 249, 0.92);
+  -webkit-backdrop-filter: saturate(180%) blur(8px);
+  backdrop-filter: saturate(180%) blur(8px);
+  border-bottom-color: var(--divider);
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+
+.navbar .navbar-brand {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--ink);
+}
+
+.navbar .nav-link {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin: 0 0.25rem;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: var(--ink);
+}
+
+/* Bootstrap ScrollSpy auto-adds .active to the currently visible
+   section's nav link. We paint that in the accent color. */
+.navbar .nav-link.active {
+  color: var(--accent);
+}
+
+
+/* ----- 7. Buttons -------------------------------------------
+   .btn-primary and .btn-outline-primary already use --bs-primary
+   (set to teal in section 1). We just refine padding, radius,
+   weight, and hover colors. */
+.btn {
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border-radius: 0.5rem;   /* matches Bootstrap's rounded-3 */
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-bg: var(--accent-hover);
+  --bs-btn-hover-border-color: var(--accent-hover);
+  --bs-btn-active-bg: #1f4d4a;
+  --bs-btn-active-border-color: #1f4d4a;
+  --bs-btn-disabled-bg: var(--accent);
+  --bs-btn-disabled-border-color: var(--accent);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-bg: var(--accent);
+  --bs-btn-hover-border-color: var(--accent);
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-active-bg: var(--accent-hover);
+  --bs-btn-active-border-color: var(--accent-hover);
+}
+
+
+/* ----- 8. Hero ----------------------------------------------
+   Generous top padding so the name clears the fixed navbar.
+   On very small screens we ease it back (see section 16). */
+.hero {
+  padding-top: 7.5rem;
+  padding-bottom: 4rem;
+}
+
+.hero-name {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero-tagline {
+  font-size: 1.125rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.hero-intro {
+  font-size: 1.0625rem;
+  color: var(--muted);
+  max-width: 640px;
+}
+
+/* Hero identity strip — small muted line under the tagline that
+   signals the three things I do. Uses · separators in markup;
+   we only style the line itself here. */
+.hero-identity {
+  font-size: 0.92rem;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  max-width: 640px;
+}
+
+/* Availability badge — small teal pill at the top of the hero */
+.avail-badge {
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+}
+.avail-badge .small-dot {
+  font-size: 0.5rem;
+  vertical-align: 1px;
+}
+
+
+/* ----- 9. Cards ---------------------------------------------
+   Subtle by default: thin divider border, no shadow. On hover
+   we lift with a very faint shadow — never anything dramatic. */
+.card {
+  background-color: #ffffff;
+  border: 1px solid var(--divider);
+  border-radius: 0.5rem;    /* matches rounded-3 */
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 14px rgba(27, 36, 48, 0.06);
+  border-color: #DCDCD5;
+}
+
+.card-subtitle {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+
+.card-title-tight {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+
+.card-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.card-body-text {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+
+/* ----- 9b. About prose ---------------------------------------
+   First-person paragraphs in the About section. Slightly wider
+   measure than the page default for a comfortable reading
+   rhythm, with em-tags picking up the accent for subtle stress. */
+.about-prose {
+  max-width: 760px;
+  font-size: 1.0625rem;
+  color: var(--ink);
+  line-height: 1.75;
+}
+
+.about-prose p {
+  margin-bottom: 1.1rem;
+}
+
+.about-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.about-prose em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+
+/* ----- 9c. Stack tags (used in "What I build" cards) ---------
+   Small neutral pills indicating a project's tech stack. Quieter
+   than .pill-badge so they read as metadata, not as primary
+   skill branding — keeps visual hierarchy clean inside cards. */
+.stack-tag {
+  display: inline-block;
+  background-color: rgba(91, 100, 114, 0.06);
+  color: var(--muted);
+  border: 1px solid var(--divider);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  line-height: 1.3;
+}
+
+
+/* ----- 10. Skill pill badges --------------------------------
+   .pill-badge is our skill chip: teal text on a faint teal
+   wash with a thin teal border. We don't use Bootstrap's .badge
+   class to avoid its default solid color and small font. */
+.pill-badge {
+  display: inline-block;
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+  font-weight: 500;
+  font-size: 0.825rem;
+  letter-spacing: 0.01em;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  line-height: 1.2;
+}
+
+
+/* ----- 11. Experience timeline ------------------------------
+   <ol class="timeline"> with <li class="timeline-item"> items.
+   A 1px vertical line on the left, a teal dot per item, content
+   indented to the right. Single-column already, so it stacks
+   gracefully on mobile with no extra rules. */
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+  margin: 0;
+  border-left: 1px solid var(--divider);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.5rem - 6px);   /* centers the dot on the vertical line */
+  top: 0.55rem;
+  width: 11px;
+  height: 11px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--bg);  /* gap around the dot so the line doesn't touch it */
+}
+
+.timeline-date {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.timeline-role {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+.timeline-meta {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0.15rem 0 0.6rem;
+}
+
+.timeline-bullets {
+  padding-left: 1.15rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.timeline-bullets li {
+  margin-bottom: 0.3rem;
+}
+
+.timeline-bullets code {
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  padding: 0 0.35rem;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+
+/* ----- 12. Lead text / muted helpers ------------------------ */
+.lead-text {
+  font-size: 1.125rem;
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+.text-muted-soft {
+  color: var(--muted) !important;
+}
+
+.contact-lead {
+  max-width: 560px;
+  color: var(--muted);
+}
+
+
+/* ----- 13. Footer ------------------------------------------- */
+footer {
+  border-color: var(--divider) !important;
+  margin-top: 2rem;
+}
+
+
+/* ----- 14. Focus styling for keyboard users -----------------
+   Browser default focus rings can clash with the palette.
+   :focus-visible only shows the ring for keyboard focus, not
+   for mouse clicks — accessible without being noisy. */
+:where(a, button, .btn, .nav-link, .navbar-toggler):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+
+/* ----- 15. Selection color ---------------------------------- */
+::selection {
+  background-color: var(--accent-soft);
+  color: var(--ink);
+}
+
+
+/* ----- 16. Small responsive tweaks --------------------------
+   On phones, ease up the hero top padding so the name doesn't
+   crowd against the navbar. Section labels and headings already
+   scale via clamp(). */
+@media (max-width: 575.98px) {
+  .hero {
+    padding-top: 6rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .timeline {
+    padding-left: 1.25rem;
+  }
+}
