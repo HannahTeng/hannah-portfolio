@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Warm editorial design tokens ─── */
+:root {
+  --color-ivory:      #FAF7F2;
+  --color-parchment:  #F3EDE4;
+  --color-linen:      #EDE5D8;
+  --color-sand:       #D4C5AD;
+  --color-honey:      #C9A96E;
+  --color-amber:      #B8934A;
+  --color-deep-amber: #9A7A3C;
+  --color-ink:        #1A1A1A;
+  --color-charcoal:   #3D3D3D;
+  --color-warm-gray:  #8A8278;
+  --color-light-gray: #B8B0A4;
+  --font-display: 'Cormorant Garamond', Didot, Georgia, serif;
+  --font-body:    'Lato', Georgia, serif;
+  --font-mono:    'Space Mono', 'SF Mono', Consolas, monospace;
+  --ease:         cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:     150ms;
+  --dur-med:      300ms;
+  --dur-slow:     500ms;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: auto; } /* Lenis owns smooth scroll */
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar       { width: 3px; }
+::-webkit-scrollbar-track { background: var(--color-ivory); }
+::-webkit-scrollbar-thumb { background: var(--color-sand); border-radius: 2px; }
+
+/* Selection */
+::selection {
+  background: rgba(201, 169, 110, 0.24);
+  color: var(--color-ink);
+}
+
+/* Label / caption utility */
+.label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-warm-gray);
+}
+
+/* ─── Film grain — subtle dark noise on the light paper ─── */
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: -100%;
+  z-index: 70;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grainShift 0.9s steps(4) infinite;
+}
+
+@keyframes grainShift {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-2%, 1%); }
+  50%  { transform: translate(1%, -2%); }
+  75%  { transform: translate(-1%, 2%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ─── Marquee ─── */
+@keyframes marqueeLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marqueeLeft var(--marquee-speed, 30s) linear infinite;
+  will-change: transform;
+}
+
+/* ─── Cursor: hide native when the glow trail is the cursor ─── */
+@media (pointer: fine) {
+  body.trail-host,
+  body.trail-host a,
+  body.trail-host button,
+  body.trail-host [data-hover] {
+    cursor: none;
+  }
+}
+
+/* ─── Live pulse dot (availability) ─── */
+@keyframes livePulse {
+  0%   { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.5); }
+  70%  { box-shadow: 0 0 0 7px rgba(201, 169, 110, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0); }
+}
+.live-dot { animation: livePulse 2.2s ease-out infinite; }
+
+/* Reduced motion: kill CSS loops */
+@media (prefers-reduced-motion: reduce) {
+  .grain::after,
+  .marquee-track { animation: none; }
+}
