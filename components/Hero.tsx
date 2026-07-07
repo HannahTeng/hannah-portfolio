@@ -55,7 +55,7 @@ export default function Hero() {
       {/* Grid areas: mobile → [name | photo] / [tagline] / [cta]; desktop → text col
           left, photo spans the right col. Single image, equal top/bottom padding. */}
       <div
-        className="max-w-7xl mx-auto w-full px-6 md:px-12 py-24 md:py-16 grid grid-cols-[1fr_auto] gap-x-5 sm:gap-x-8 md:gap-x-12 gap-y-6 items-center md:content-center [grid-template-areas:'nm_ph'_'tg_tg'_'ct_ct'] md:[grid-template-areas:'nm_ph'_'tg_ph'_'ct_ph']"
+        className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 py-24 md:py-16 grid grid-cols-[1fr_auto] gap-x-5 sm:gap-x-8 md:gap-x-12 gap-y-6 items-center md:content-center [grid-template-areas:'nm_ph'_'tg_tg'_'ct_ct'] md:[grid-template-areas:'nm_ph'_'tg_ph'_'ct_ph']"
       >
         {/* Name */}
         <div className="[grid-area:nm] min-w-0">
@@ -74,14 +74,14 @@ export default function Hero() {
         <p className="[grid-area:tg] hero-fade font-body font-light text-charcoal text-sm md:text-lg max-w-lg leading-relaxed md:mt-2">
           MSc Data Science in Health @ UCLA. I embed with clients to turn messy, real-world workflows
           into shipped systems — designing the frontend, translating business processes into product,
-          and building against systems that have no API.
+          and integrating with the tools teams already use.
         </p>
 
         {/* CTAs */}
         <div className="[grid-area:ct] hero-fade flex flex-wrap items-center gap-3 md:mt-3">
           <button
             onClick={() => scrollToSection('#work')}
-            className="px-6 md:px-7 py-2.5 md:py-3 bg-ink text-ivory font-mono text-[11px] md:text-xs tracking-widest uppercase transition-colors duration-300 hover:bg-honey hover:text-ink"
+            className="relative z-20 px-6 md:px-7 py-2.5 md:py-3 bg-ink text-ivory font-mono text-[11px] md:text-xs tracking-widest uppercase transition-colors duration-300 hover:bg-honey hover:text-ink"
             data-hover
           >
             View Work
@@ -115,7 +115,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll cue */}
-      <div className="hidden md:flex absolute bottom-8 left-12 flex-col items-start gap-2">
+      <div className="pointer-events-none hidden md:flex absolute bottom-8 left-12 z-0 flex-col items-start gap-2">
         <span className="label text-sand">Scroll</span>
         <div className="w-px h-10 bg-gradient-to-b from-sand to-transparent" />
       </div>

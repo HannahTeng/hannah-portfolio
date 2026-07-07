@@ -12,11 +12,11 @@ export default function Contact() {
         <SplitReveal
           as="h2"
           text="Let’s build something."
-          className="font-display font-light text-5xl sm:text-7xl md:text-8xl tracking-tight leading-[0.95] mb-10"
+          className="font-display font-light section-title mb-10"
         />
 
         <Reveal index={1}>
-          <p className="font-body font-light text-light-gray text-lg max-w-xl leading-relaxed mb-14">
+          <p className="font-body font-light body-copy text-light-gray max-w-xl mb-14">
             Open to full-time data science, forward-deployed, and AI-product roles from August 2026 —
             plus research collaborations at the intersection of health and AI.
           </p>

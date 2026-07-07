@@ -50,7 +50,7 @@ export default function Projects() {
           <SplitReveal
             as="h2"
             text="Selected work"
-            className="font-display font-normal text-4xl md:text-6xl text-ink tracking-tight"
+            className="font-display font-normal section-title text-ink"
           />
         </div>
 
@@ -71,14 +71,14 @@ export default function Projects() {
                   )}
                 </div>
 
-                <h3 className="font-display font-normal text-2xl md:text-3xl text-ink group-hover:text-honey transition-colors duration-300 leading-tight">
+                <h3 className="font-display font-normal card-title text-ink group-hover:text-honey transition-colors duration-300">
                   {p.title}
                 </h3>
                 <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-warm-gray mt-2">
                   {p.subtitle}
                 </p>
 
-                <p className="font-body text-charcoal text-sm leading-relaxed mt-5 mb-7">{p.description}</p>
+                <p className="font-body body-copy text-charcoal mt-5 mb-7">{p.description}</p>
 
                 <div className="flex flex-wrap gap-1.5">
                   {p.tags.map((tag) => (

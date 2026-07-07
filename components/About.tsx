@@ -26,7 +26,7 @@ export default function About() {
         {/* Signature scrub statement */}
         <WordFill
           text="I turn messy clinical and business data into products people actually use — the models, the agents, and the interfaces that ship them."
-          className="font-display font-light text-3xl sm:text-4xl md:text-6xl leading-[1.12] tracking-tight max-w-5xl"
+          className="font-display font-light statement-title max-w-5xl"
         />
 
         {/* Count-up stats */}
@@ -47,17 +47,17 @@ export default function About() {
             <SplitReveal
               as="h2"
               text="Between data science and product."
-              className="font-display font-normal text-3xl md:text-4xl text-ink tracking-tight leading-tight"
+              className="font-display font-normal card-title text-ink"
             />
             <Reveal index={1}>
-              <p className="font-body text-charcoal leading-relaxed">
+              <p className="font-body body-copy text-charcoal">
                 I&apos;m a first-year MSc student in Data Science in Health at UCLA, with a Statistics
                 background from Nottingham. I model clinical and business data — then design and ship the
                 agents, dashboards, and interfaces that put it to work.
               </p>
             </Reveal>
             <Reveal index={2}>
-              <p className="font-body text-charcoal leading-relaxed">
+              <p className="font-body body-copy text-charcoal">
                 As a forward-deployed engineer I&apos;ve embedded across four industries, run discovery
                 directly with non-technical operators, drawn the line between where AI agents act and where
                 humans stay in the loop, and owned the frontend that ships it. Currently building an

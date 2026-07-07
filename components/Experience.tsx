@@ -20,7 +20,7 @@ const work = [
     period: '2026 – Present',
     location: 'Los Angeles, USA',
     bullets: [
-      'Front-line engineer across four client engagements — own frontend/UX design, business-process implementation, and client-facing consulting from discovery to delivery, building against systems that have no API.',
+      'Front-line engineer across four client engagements — own frontend/UX design, business-process implementation, and client-facing consulting from discovery to delivery, integrating with the systems teams already use.',
       'An Irvine international education group: owned frontend/UX for a five-role platform (student, parent, counselor, studio, admin) + marketing site on a shared Next.js / React-Native codebase; scoped study-abroad workflows into an Epic→Story plan (4 architecture layers, 80 features) so the client could self-select priceable scope.',
       'A US customs broker: ran discovery with a 30-year broker (300+ entries/day) and designed a human-in-the-loop “co-pilot” so staff keep the judgment calls while repetitive filing is automated.',
       'A cross-border logistics & trucking operator: designed a Next.js + ag-grid dispatch dashboard (table + kanban) mirroring the client’s ERP UX; locked real load thresholds (100 CBM / 44,000 lb) before implementation.',
@@ -123,11 +123,11 @@ export default function Experience() {
         <div className="flex items-end justify-between flex-wrap gap-6 mb-16">
           <div>
             <p className="label mb-6 text-honey">02 / Experience</p>
-            <SplitReveal
-              as="h2"
-              text="Where I’ve built"
-              className="font-display font-normal text-4xl md:text-6xl text-ink tracking-tight"
-            />
+          <SplitReveal
+            as="h2"
+            text="Where I’ve built"
+            className="font-display font-normal section-title text-ink"
+          />
           </div>
 
           <div className="flex border border-linen overflow-hidden">
@@ -155,7 +155,7 @@ export default function Experience() {
 
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <div className="flex items-center gap-3 flex-wrap">
-                    <h3 className="font-display text-xl md:text-2xl text-ink">{item.role}</h3>
+                    <h3 className="font-display card-title text-ink">{item.role}</h3>
                     {'tag' in item && item.tag && (
                       <span className="label !text-honey border border-honey/40 px-2 py-0.5">{item.tag}</span>
                     )}
