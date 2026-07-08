@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SplitReveal from '@/components/ui/SplitReveal'
 import Reveal from '@/components/ui/Reveal'
 
@@ -115,14 +115,19 @@ type Tab = 'work' | 'research'
 
 export default function Experience() {
   const [tab, setTab] = useState<Tab>('work')
+  const [openKey, setOpenKey] = useState('work-0')
   const items = tab === 'work' ? work : research
 
+  useEffect(() => {
+    setOpenKey(`${tab}-0`)
+  }, [tab])
+
   return (
-    <section id="work" className="relative py-28 md:py-36 px-6 bg-parchment">
+    <section id="work" className="relative py-20 md:py-36 px-6 bg-parchment">
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-end justify-between flex-wrap gap-6 mb-16">
+        <div className="flex items-end justify-between flex-wrap gap-6 mb-10 md:mb-16">
           <div>
-            <p className="label mb-6 text-honey">02 / Experience</p>
+            <p className="label mb-4 md:mb-6 text-honey">02 / Experience</p>
           <SplitReveal
             as="h2"
             text="Where I’ve built"
@@ -146,37 +151,58 @@ export default function Experience() {
           </div>
         </div>
 
-        <div className="relative">
-          <div className="absolute left-0 md:left-[7px] top-2 bottom-2 w-px bg-sand/60" />
-          <div>
+        <div className="border-y border-linen">
             {items.map((item, i) => (
-              <Reveal key={`${tab}-${i}`} index={i} className="relative pl-7 md:pl-16 pb-10 group">
-                <div className="absolute left-[-4px] md:left-[3px] top-2.5 w-2.5 h-2.5 rounded-full border border-honey bg-ivory group-hover:bg-honey transition-colors duration-300 z-10" />
+              <Reveal key={`${tab}-${i}`} index={i}>
+                <div className="border-b border-linen last:border-b-0">
+                  <button
+                    type="button"
+                    onClick={() => setOpenKey(openKey === `${tab}-${i}` ? '' : `${tab}-${i}`)}
+                    className="group flex w-full items-start justify-between gap-5 py-5 md:py-6 text-left"
+                    aria-expanded={openKey === `${tab}-${i}`}
+                    data-hover
+                  >
+                    <span className="flex min-w-0 gap-4 md:gap-6">
+                      <span className="pt-1 font-mono text-[11px] text-light-gray">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span className="min-w-0">
+                        <span className="flex flex-wrap items-center gap-2 md:gap-3">
+                          <span className="font-display text-2xl md:text-3xl leading-tight text-ink transition-colors duration-300 group-hover:text-honey">
+                            {item.role}
+                          </span>
+                          {'tag' in item && item.tag && (
+                            <span className="label !text-honey border border-honey/40 px-2 py-0.5">{item.tag}</span>
+                          )}
+                        </span>
+                        <span className="mt-1 block font-body text-sm text-warm-gray">
+                          {item.company} · {item.location}
+                        </span>
+                      </span>
+                    </span>
+                    <span className="shrink-0 pt-1 text-right">
+                      <span className="block font-mono text-xs text-warm-gray">{item.period}</span>
+                      <span className="mt-2 block font-mono text-xs text-warm-gray transition-colors duration-300 group-hover:text-honey">
+                        {openKey === `${tab}-${i}` ? '-' : '+'}
+                      </span>
+                    </span>
+                  </button>
 
-                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <div className="flex items-center gap-3 flex-wrap">
-                    <h3 className="font-display card-title text-ink">{item.role}</h3>
-                    {'tag' in item && item.tag && (
-                      <span className="label !text-honey border border-honey/40 px-2 py-0.5">{item.tag}</span>
-                    )}
-                  </div>
-                  <span className="font-mono text-xs text-warm-gray">{item.period}</span>
+                  {openKey === `${tab}-${i}` && (
+                    <div className="pb-5 md:pb-7 pl-[2.7rem] md:pl-[3.25rem] -mt-1">
+                      <ul className="space-y-2 max-w-3xl">
+                        {item.bullets.map((b, j) => (
+                          <li key={j} className="flex items-start gap-3 text-charcoal text-sm md:text-[15px] leading-relaxed">
+                            <span className="text-honey mt-1.5 flex-shrink-0 text-[10px]">◆</span>
+                            <span className="font-body">{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
-                <p className="font-body text-sm text-warm-gray mt-1 mb-4">
-                  {item.company} · {item.location}
-                </p>
-
-                <ul className="space-y-2 max-w-3xl">
-                  {item.bullets.map((b, j) => (
-                    <li key={j} className="flex items-start gap-3 text-charcoal text-sm md:text-[15px] leading-relaxed">
-                      <span className="text-honey mt-1.5 flex-shrink-0 text-[10px]">◆</span>
-                      <span className="font-body">{b}</span>
-                    </li>
-                  ))}
-                </ul>
               </Reveal>
             ))}
-          </div>
         </div>
       </div>
     </section>

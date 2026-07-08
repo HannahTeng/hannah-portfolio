@@ -70,12 +70,13 @@ export default function CanvasTrail({ enableCanvasTrail = true }: { enableCanvas
     if (!enableCanvasTrail) return
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const fine = window.matchMedia('(pointer: fine)').matches
-    if (reduced || !fine) return
+    const coarse = window.matchMedia('(pointer: coarse)').matches
+    if (reduced || (!fine && !coarse)) return
 
     const canvas = canvasRef.current!
     const ctx = canvas.getContext('2d')!
     const sprite = makeSprite(CONFIG.color)
-    document.body.classList.add('trail-host') // hide native cursor
+    if (fine) document.body.classList.add('trail-host') // hide native cursor only when a cursor exists
 
     let dpr = Math.min(window.devicePixelRatio, 2)
     const resize = () => {
@@ -189,14 +190,14 @@ export default function CanvasTrail({ enableCanvasTrail = true }: { enableCanvas
       window.removeEventListener('resize', resize)
       window.removeEventListener('pointermove', onMove)
       document.removeEventListener('visibilitychange', onVisibility)
-      document.body.classList.remove('trail-host')
+      if (fine) document.body.classList.remove('trail-host')
     }
   }, [enableCanvasTrail])
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 z-[60] pointer-events-none hidden md:block"
+      className="fixed inset-0 z-[60] pointer-events-none block"
       aria-hidden
     />
   )

@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import SplitReveal from '@/components/ui/SplitReveal'
 import Reveal from '@/components/ui/Reveal'
 
@@ -22,11 +23,14 @@ const certs = [
 ]
 
 export default function Skills() {
+  const [openKey, setOpenKey] = useState('Agentic System Design')
+  const [certsOpen, setCertsOpen] = useState(false)
+
   return (
-    <section id="skills" className="relative py-28 md:py-36 px-6 bg-parchment">
+    <section id="skills" className="relative py-20 md:py-36 px-6 bg-parchment">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-16">
-          <p className="label mb-6 text-honey">04 / Skills</p>
+        <div className="mb-10 md:mb-16">
+          <p className="label mb-4 md:mb-6 text-honey">04 / Skills</p>
           <SplitReveal
             as="h2"
             text="What I work with"
@@ -34,34 +38,69 @@ export default function Skills() {
           />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-linen border border-linen mb-12">
+        <div className="border-y border-linen">
           {groups.map((g, i) => (
-            <Reveal key={g.cat} index={i % 3} className="bg-ivory p-6">
-              <p className="label !text-honey mb-4">{g.cat}</p>
-              <div className="flex flex-wrap gap-2">
-                {g.skills.map((s) => (
-                  <span
-                    key={s}
-                    data-hover
-                    className="font-body text-xs text-charcoal bg-parchment border border-linen px-2.5 py-1 hover:border-honey hover:text-honey transition-colors duration-200"
-                  >
-                    {s}
+            <Reveal key={g.cat} index={i % 3}>
+              <div className="border-b border-linen last:border-b-0">
+                <button
+                  type="button"
+                  onClick={() => setOpenKey(openKey === g.cat ? '' : g.cat)}
+                  className="group flex w-full items-center justify-between gap-5 py-5 md:py-6 text-left"
+                  aria-expanded={openKey === g.cat}
+                  data-hover
+                >
+                  <span className="flex min-w-0 items-baseline gap-4 md:gap-6">
+                    <span className="font-mono text-[11px] text-light-gray">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="font-display text-2xl md:text-3xl leading-none text-ink transition-colors duration-300 group-hover:text-honey">
+                      {g.cat}
+                    </span>
                   </span>
-                ))}
+                  <span className="font-mono text-xs text-warm-gray transition-colors duration-300 group-hover:text-honey">
+                    {openKey === g.cat ? '-' : '+'}
+                  </span>
+                </button>
+
+                {openKey === g.cat && (
+                  <div className="pb-5 md:pb-6 pl-[2.7rem] md:pl-[3.25rem] -mt-1">
+                    <p className="font-body text-sm md:text-[15px] leading-relaxed text-warm-gray">
+                      {g.skills.join(' · ')}
+                    </p>
+                  </div>
+                )}
               </div>
             </Reveal>
           ))}
         </div>
 
-        <Reveal className="border border-linen bg-ivory p-7 md:p-8">
-          <p className="label !text-honey mb-6">Certifications & Awards</p>
-          <div className="grid md:grid-cols-2 gap-x-10 gap-y-3">
-            {certs.map((c) => (
-              <div key={c} className="flex items-start gap-3 border-t border-linen pt-3">
-                <span className="text-honey mt-1 text-[10px]">◆</span>
-                <p className="font-body text-charcoal text-sm">{c}</p>
+        <Reveal className="border-b border-linen">
+          <div>
+            <button
+              type="button"
+              onClick={() => setCertsOpen(!certsOpen)}
+              className="group flex w-full items-center justify-between gap-5 py-5 md:py-6 text-left"
+              aria-expanded={certsOpen}
+              data-hover
+            >
+              <span className="flex min-w-0 items-baseline gap-4 md:gap-6">
+                <span className="font-mono text-[11px] text-light-gray">07</span>
+                <span className="font-display text-2xl md:text-3xl leading-none text-ink transition-colors duration-300 group-hover:text-honey">
+                  Certifications & Awards
+                </span>
+              </span>
+              <span className="font-mono text-xs text-warm-gray transition-colors duration-300 group-hover:text-honey">
+                {certsOpen ? '-' : '+'}
+              </span>
+            </button>
+
+            {certsOpen && (
+              <div className="pb-5 md:pb-6 pl-[2.7rem] md:pl-[3.25rem] -mt-1">
+                <p className="font-body text-sm md:text-[15px] leading-relaxed text-warm-gray">
+                  {certs.join(' · ')}
+                </p>
               </div>
-            ))}
+            )}
           </div>
         </Reveal>
       </div>

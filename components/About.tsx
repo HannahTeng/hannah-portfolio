@@ -19,9 +19,9 @@ const education = [
 
 export default function About() {
   return (
-    <section id="about" className="relative py-28 md:py-36 px-6">
+    <section id="about" className="relative py-20 md:py-36 px-6">
       <div className="max-w-6xl mx-auto">
-        <p className="label mb-14 text-honey">01 / About</p>
+        <p className="label mb-8 md:mb-14 text-honey">01 / About</p>
 
         {/* Signature scrub statement */}
         <WordFill
@@ -30,7 +30,7 @@ export default function About() {
         />
 
         {/* Count-up stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-linen border border-linen mt-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-linen border border-linen mt-12 md:mt-20">
           {stats.map((s, i) => (
             <Reveal key={i} index={i} className="bg-ivory p-6 md:p-8">
               <p className="font-display font-normal text-4xl md:text-5xl text-honey leading-none">
@@ -42,7 +42,7 @@ export default function About() {
         </div>
 
         {/* Bio + education */}
-        <div className="grid md:grid-cols-2 gap-14 md:gap-20 mt-24">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 mt-16 md:mt-24">
           <div className="space-y-6">
             <SplitReveal
               as="h2"

@@ -43,10 +43,10 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-28 md:py-36 px-6">
+    <section id="projects" className="relative py-20 md:py-36 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-16">
-          <p className="label mb-6 text-honey">03 / Projects</p>
+        <div className="mb-10 md:mb-16">
+          <p className="label mb-4 md:mb-6 text-honey">03 / Projects</p>
           <SplitReveal
             as="h2"
             text="Selected work"

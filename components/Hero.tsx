@@ -51,20 +51,20 @@ export default function Hero() {
   }, [])
 
   return (
-    <section ref={rootRef} className="relative min-h-svh w-full overflow-hidden bg-ivory flex items-center">
+    <section ref={rootRef} className="relative md:min-h-svh w-full overflow-hidden bg-ivory flex items-center">
       {/* Grid areas: mobile → [name | photo] / [tagline] / [cta]; desktop → text col
           left, photo spans the right col. Single image, equal top/bottom padding. */}
       <div
-        className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 py-24 md:py-16 grid grid-cols-[1fr_auto] gap-x-5 sm:gap-x-8 md:gap-x-12 gap-y-6 items-center md:content-center [grid-template-areas:'nm_ph'_'tg_tg'_'ct_ct'] md:[grid-template-areas:'nm_ph'_'tg_ph'_'ct_ph']"
+        className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 py-16 md:py-16 grid grid-cols-[1fr_auto] gap-x-5 sm:gap-x-8 md:gap-x-12 gap-y-6 items-center md:content-center [grid-template-areas:'nm_ph'_'tg_tg'_'ct_ct'] md:[grid-template-areas:'nm_ph'_'tg_ph'_'ct_ph']"
       >
         {/* Name */}
         <div className="[grid-area:nm] min-w-0">
           <p className="hero-fade label mb-4 md:mb-6">Forward-Deployed Engineer · Health Data Science</p>
           <h1 className="font-display font-light text-ink leading-[0.85] tracking-[-0.02em] text-[13vw] sm:text-7xl md:text-8xl lg:text-9xl">
-            <span className="block overflow-hidden pb-[0.08em] -mb-[0.05em]">
+            <span className="block overflow-hidden pb-[0.08em] mb-0 md:-mb-[0.05em]">
               <span className="hero-word inline-block">Hannah</span>
             </span>
-            <span className="block overflow-hidden pb-[0.08em] -mb-[0.05em]">
+            <span className="block overflow-hidden pb-[0.08em] mb-0 md:-mb-[0.05em]">
               <span className="hero-word inline-block italic text-honey">Teng</span>
             </span>
           </h1>
@@ -79,9 +79,18 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="[grid-area:ct] hero-fade flex flex-wrap items-center gap-3 md:mt-3">
+          <a
+            href="https://agent.hannahteng.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative z-20 px-6 md:px-7 py-2.5 md:py-3 bg-ink text-ivory font-mono text-[11px] md:text-xs tracking-widest uppercase transition-colors duration-300 hover:bg-honey hover:text-ink"
+            data-hover
+          >
+            Build Your Agent ↗
+          </a>
           <button
             onClick={() => scrollToSection('#work')}
-            className="relative z-20 px-6 md:px-7 py-2.5 md:py-3 bg-ink text-ivory font-mono text-[11px] md:text-xs tracking-widest uppercase transition-colors duration-300 hover:bg-honey hover:text-ink"
+            className="px-6 md:px-7 py-2.5 md:py-3 border border-ink text-ink font-mono text-[11px] md:text-xs tracking-widest uppercase transition-colors duration-300 hover:border-honey hover:text-honey"
             data-hover
           >
             View Work

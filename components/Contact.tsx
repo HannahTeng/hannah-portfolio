@@ -5,18 +5,18 @@ import Reveal from '@/components/ui/Reveal'
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative py-28 md:py-40 px-6 bg-ink text-ivory overflow-hidden">
+    <section id="contact" className="relative py-20 md:py-40 px-6 bg-ink text-ivory overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <p className="label mb-8 !text-honey">05 / Contact</p>
+        <p className="label mb-5 md:mb-8 !text-honey">05 / Contact</p>
 
         <SplitReveal
           as="h2"
           text="Let’s build something."
-          className="font-display font-light section-title mb-10"
+          className="font-display font-light section-title mb-7 md:mb-10"
         />
 
         <Reveal index={1}>
-          <p className="font-body font-light body-copy text-light-gray max-w-xl mb-14">
+          <p className="font-body font-light body-copy text-light-gray max-w-xl mb-10 md:mb-14">
             Open to full-time data science, forward-deployed, and AI-product roles from August 2026 —
             plus research collaborations at the intersection of health and AI.
           </p>
@@ -42,7 +42,7 @@ export default function Contact() {
         </Reveal>
 
         <Reveal index={3}>
-          <div className="flex flex-wrap items-center gap-3 mt-16">
+          <div className="flex flex-wrap items-center gap-3 mt-10 md:mt-16">
             {[
               { label: 'GitHub ↗', href: 'https://github.com/HannahTeng' },
               { label: 'Email ↗', href: 'mailto:hannahteng777@gmail.com' },
@@ -61,7 +61,7 @@ export default function Contact() {
           </div>
         </Reveal>
 
-        <div className="flex flex-wrap items-center justify-between gap-4 mt-24 pt-8 border-t border-ivory/10">
+        <div className="flex flex-wrap items-center justify-between gap-4 mt-14 md:mt-24 pt-8 border-t border-ivory/10">
           <p className="label !text-warm-gray">© 2026 Zihan (Hannah) Teng</p>
           <p className="label !text-warm-gray">Next.js · Three.js · GSAP · Tailwind</p>
         </div>
